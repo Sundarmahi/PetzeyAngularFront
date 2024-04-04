@@ -1,0 +1,67 @@
+<app-appointment-summary></app-appointment-summary>
+<div class="dashboard">
+    <div class="containercard">
+        <div *ngFor="let card of getPaginatedCards()">
+            <div class="displaycard">
+                <div class="info">
+                    <div class="cardupper">
+                        <div>
+                            <!-- [src]="card.imgUrl" -->
+                            <img class="cardimg" src="../../assets/images/Ellipse 1dp.png">
+                        </div>
+                        <div class="carduppertext">
+                            <div class="nameinfo">
+                                <a class="name">{{card.pet.petName}}</a> <br>
+                                <span class="gender">{{card.pet.petGender}},{{card.pet.petAge}} years</span><br>
+                            </div>
+                            <span class="owner">Owner:{{card.petParent.petParentName}}</span>
+                        </div>
+                    </div>
+                    <div class="lowercard">
+                        <div>
+                            <a class="time">{{card.appointment_time | slice: 0:5 }}</a> <br>
+                            <a class="date">{{card.appointmentDate | date: 'dd/MM/yyyy'}}</a>
+                        </div>
+                        <div class="icons">
+                            <a href="" class="chat"> <img src="../../assets/images/ic_comment_24px.png" alt=""></a>
+                            <a href="" class="call"> <img src="../../assets/images/Frame (1).png" alt=""></a>
+                            <a href="" class="videocall"> <img src="../../assets/images/Frame.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomelements">
+                    <div class="details">
+                        <a class="detailstext" routerLink="/details">Details</a>
+                        <a class="detailstext" routerLink="/feedback/{card.vet.id}">Feedback</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination p5">
+        <ul>
+            <a (click)="goToFirstPage()">
+                <li></li>
+            </a>
+            <a (click)="previousPage()">
+                <li></li>
+            </a>
+            <a (click)="nextPage()">
+                <li></li>
+            </a>
+            <a (click)="goToLastPage()">
+                <li></li>
+            </a>
+        </ul>
+    </div>
+</div>
+<!-- <div class="datepick">
+            <mat-form-field appearance="outline">
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-label>Select dates</mat-label>
+</mat-form-field>
+</div> -->
+<!--  2256 x 1504 (201 PPI) -->
